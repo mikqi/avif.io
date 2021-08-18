@@ -4,9 +4,9 @@ export default function BlogPosts(props: any) {
   const posts = props.posts;
 
   const listItems = posts.map(({data, slug}: any, index: any) => (
-    <Link href={`/${props.title}/${slug}`} key={index}>
+    <Link href={`/blog/${props.title}/${slug}`} key={index}>
       <a
-        href={`/${props.title}/${slug}`}
+        href={`/blog/${props.title}/${slug}`}
         tabIndex={0}
         className="p-2 cursor-pointer md:w-1/2 lg:w-1/3 group"
       >
