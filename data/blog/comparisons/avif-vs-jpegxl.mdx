@@ -64,15 +64,15 @@ relatedPosts:
   
 The battle to replace the aging JPEG image standard is heating up, and two competitors are eying for the crown. AVIF and JPEG XL. In this article, we'll compare how the two formats stack up against each other and see which is likely to dethrone JPEG as the de-facto king of image web delivery.  
 Released in 2021 by the Joint Photographic Experts Group (the same organization that developed the original JPEG standard), **JPEG XL aims to be a long-term replacement for legacy JPEG** (Hence X'L' as in 'long-term'). As a royalty-free and open-source standard, JPEG XL's creators hope that the open nature of their format will invite web developers to adopt the standard. The JXL core bitstream was frozen in January 2021, the file format was finalized in April 2021.  
-**AVIF is another recent image format developed by the Alliance for Open Media (AOM) and released in 2019.{" "}** The format is based on the AV1 video codec and is derived from video frames. Here are the technical specs and limitations of both of these image formats compared. The AV1 bitstream was frozen in 2018, the AVIF container spec was finalized in February 2019.  
+**AVIF is another recent image format developed by the Alliance for Open Media (AOM) and released in 2019.** The format is based on the AV1 video codec and is derived from video frames. Here are the technical specs and limitations of both of these image formats compared. The AV1 bitstream was frozen in 2018, the AVIF container spec was finalized in February 2019.  
 
 ## Quality and Limits
   
 As an image format based on a video frame, the resolution limit makes perfect sense. Still, it can be limiting for non-web delivery applications like print. **AVIF has a maximum resolution of 65536 x 65536 pixels.**  
 It is possible to push past this limit through tiling. Independently encoded tiles can then be placed on a grid to create a theoretical maximum resolution of 2,147,483,647 x 2,147,483,647 pixels or 2500 megapixels. However, when using this method, you come out with artifacts at the edges of each encoded tile, making AVIF overall unsuitable for ultra-high resolution images.  
-**On the other hand, JPEG XL has a maximum dimension of 1,152,921,502,459 megapixels or over 1 billion pixels on each side of an image.{" "}** It's safe to say you'll never be limited by the max dimensions of a JPEG XL image.  
+**On the other hand, JPEG XL has a maximum dimension of 1,152,921,502,459 megapixels or over 1 billion pixels on each side of an image.** It's safe to say you'll never be limited by the max dimensions of a JPEG XL image.  
 **AVIF has a max color depth of 12 bits with a max number of channels of three** . AVIF also supports a **high dynamic range (HDR) and includes support for wide color gamuts** .  
-**JPEG XL's max bit depth can push up to 24-bit integer or true color,{" "}** or 32-bit floats. Although, in reality, for image delivery, 12-bit color precision is usually good enough, and you're unlikely to make use of the very high bit depth support of JPEG XL.  
+**JPEG XL's max bit depth can push up to 24-bit integer or true color,** or 32-bit floats. Although, in reality, for image delivery, 12-bit color precision is usually good enough, and you're unlikely to make use of the very high bit depth support of JPEG XL.  
 
 ## Compression
   
@@ -81,12 +81,13 @@ AVIF performs excellently with low-fidelity lossy compression. A highly compress
 JPEG XL doesn't perform well with its appeal, with low-fidelity images looking slightly worse, with more noticeable artifacts in heavily compressed images. JPEG XL pulls ahead with lossless compression, providing more efficient files for both non-photo and photo lossless images.  
 
 JPEG XL is excellent for those who want to share lossless photos. It is also great for web delivery too. AVIF offers great-looking lossy photos as well, making them perfect for web delivery as they are much kinder on bandwidth. This statement however depends highly on the quality you are looking for.  
-"Most images on the web are (the equivalent of) libjpeg q60-90\. AVIF beats JXL below the equivalent of q40\. Above q50, JXL is better." <link text="@Jon Sneyers" link="twitter.com/jonsneyers" ext="">
+"Most images on the web are (the equivalent of) libjpeg q60-90\. AVIF beats JXL below the equivalent of q40\. Above q50, JXL is better." 
+<Link text="@Jon Sneyers" link="twitter.com/jonsneyers" ext=""></Link>
 
 ## Speed
   
 **AVIF had problems with its decoding and encoding speed.** Recent releases of decoders achieved various performance improvements. Encoding is however still a problem and quite slow. **It doesn't support progressive rendering**   - a process of decoding where portions of an image are incrementally decoded from an incomplete image file. This can dramatically increase the viewing speed by allowing for a lower-quality preview image to be displayed while the rest of the image is decoded. Unlike some legacy formats like PNG, AVIF is parallelizable, allowing the encoder to take advantage of multi-threaded processors instead of leaving all the encoding and decoding to a single core.  
-**JPEG XL is faster across the board with single-core encode and decode speeds and is more parallelizable than AVIF.{" "}** Suppose you want a speedy codec, with fast decode times being crucial for web delivery. In that case, JPEG XL is a compelling option. Although, the slightly lower file sizes achieved by AVIF for low-fidelity photos could give a speed advantage in download times, especially on slow broadband.  
+**JPEG XL is faster across the board with single-core encode and decode speeds and is more parallelizable than AVIF.** Suppose you want a speedy codec, with fast decode times being crucial for web delivery. In that case, JPEG XL is a compelling option. Although, the slightly lower file sizes achieved by AVIF for low-fidelity photos could give a speed advantage in download times, especially on slow broadband.  
 
 ## Other Features
   
@@ -98,6 +99,9 @@ JPEG XL is excellent for those who want to share lossless photos. It is also gre
 AVIF and JPEG XL are both novel image formats that are not widely supported by browsers. While AVIF has been around for a long time and has 67% browser support, JPEGXL does not have any support whatsoever. Thus, if you are looking for a format that is intended for your users right now, opt for AVIF.  
 **Any major browser does not fully support JPEG XL.** For Chrome, Firefox, and Edge Chromium, the image format can be enabled using a config flag. Although, this isn't going to help web delivery, as users are unlikely to want to dive into their browser's configs to view your webpage. There is no release mobile support for JPEG XL, with Samsung Internet, Safari for iOS, Chrome for Android, and the Android Browser all forgoing JPEG XL support. Time has not been kind to JPEG XL for browser support.  
 **Update 24.07.2021** Jon Sneyers clarified that JPEGXL has support both on mobile Chrome canary and Firefox nightly, so we can expect full support for release versions in the near future. Thanks, Jon!   
+
+<Image alt="Twitter update from Jon Sneyers" url="jonsneyers"></Image>
+
 The situation does look brighter for AVIF. **Google Chrome has fully supported AVIF images** both still and animated since Chrome 85 back in Aug 2020\. Opera 76 also fully supports AVIF. Users of Firefox can enable AVIF support from their browser config settings. However, Firefox has yet to include support for sequenced AVIF images.  
 **Mobile support for AVIF is good too.** Android Browser, Chrome for Android, and Samsung Internet all fully support the standard. Safari and Microsoft Edge do not provide any support for AVIF yet.  
 
@@ -109,20 +113,21 @@ In practice, AVIF and JPEG XL have a lot in common. They are both eying to be a 
 The two standards have a similar set of niche features. Both support overlays, depth maths, both support 4:4:4 and high-bit rate images. As mentioned before, although JPEG XL can reach up to 24-bit true color, for photo delivery, 12-bit is precise enough for most people.  
 
 There is one major issue remaining when it comes to implementing these formats. 
-<syntax language="html">
-  {` <picture><source src="image.avif" type="image/avif">
+<Syntax language="html">{` <picture><source src="image.avif" type="image/avif">
  <source src="image.jxl" type="image/jxl">
  <source src="image.webp" type="image/webp">
  <source src="image.jpg" type="image/jpeg">
-</picture> `} </syntax>
+</picture> `}
+</Syntax>
 
-Due to the fact that every browser that supports image/jxl will also support image/avif, no browser will ever select the image.jxl source as written. The other way around, in order to actually benefit from JPEG XL, it must beat every other format, a problem compounded by the fact that source elements actually require srcset rather than src. In contrast, WebP only needs to surpass the original JPEG/PNG source in order to be useful. We recommend Josh's article on Blobfolio for a <link text="live comparison of both formats" link="blobfolio.com/2021/jpeg-xl/" ext="">
- or to experiment with the formats yourself, on sites like 
-<Link text="squoosh.app from Google." link="https://squoosh.app/" ext="" />
+Due to the fact that every browser that supports image/jxl will also support image/avif, no browser will ever select the image.jxl source as written. The other way around, in order to actually benefit from JPEG XL, it must beat every other format, a problem compounded by the fact that source elements actually require srcset rather than src. In contrast, WebP only needs to surpass the original JPEG/PNG source in order to be useful. We recommend Josh's article on Blobfolio for a
+<Link text="live comparison of both formats" link="blobfolio.com/2021/jpeg-xl/" ext=""></Link>
+or to experiment with the formats yourself, on sites like 
+<Link text="squoosh.app from Google." link="https://squoosh.app/" ext=""></Link>
 
 ## Summary for Marketeers
   
-For most people, **images encoded in AVIF and images encoded in JPEG XL will be very similar.{" "}** Yes, JPEG XL is faster, but most users won't notice this difference. Both do incredibly well with maintaining appeal when highly compressed so that web pictures will look great, especially compared to the old legacy JPEG standard.  
+For most people, **images encoded in AVIF and images encoded in JPEG XL will be very similar.** Yes, JPEG XL is faster, but most users won't notice this difference. Both do incredibly well with maintaining appeal when highly compressed so that web pictures will look great, especially compared to the old legacy JPEG standard.  
 **The main difference between these two standards is their market adoption** . If you are looking for a format that is intended for your users right now, opt for AVIF.  
 
 ## Conclusion
